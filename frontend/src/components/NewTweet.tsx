@@ -45,7 +45,7 @@ const NewTweet = () => {
                 }
 
                 const submitTweet = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/tweets`, {
-                  userId: currentUser['_id'],
+                  userId: currentUser ? currentUser['_id'] : '',
                   description: text,
                   image: imageUrl
                 });

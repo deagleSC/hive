@@ -13,7 +13,7 @@ import {
 const router = express.Router();
 
 // Create a Tweet
-router.post("/", verifyToken, createTweet);
+router.post("/", createTweet);
 
 // Delete a Tweet
 router.delete("/delete/:id", deleteTweet);

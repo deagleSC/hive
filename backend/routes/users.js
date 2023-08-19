@@ -12,7 +12,7 @@ import { verifyToken } from "../verifyToken.js";
 const router = express.Router();
 
 // Update User
-router.put("/:id", verifyToken, update);
+router.put("/:id", update);
 
 // Get User
 router.get("/find/:id", getUser);

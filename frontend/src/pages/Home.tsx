@@ -19,7 +19,7 @@ const Home = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!currentUser) navigate("/")
+        if (!currentUser || currentUser == undefined) navigate("/")
     }, [])
 
     const dispatch = useDispatch();
