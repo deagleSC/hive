@@ -30,3 +30,6 @@ app.listen(8000, () => {
   connect();
   console.log("Listening to port 8000");
 });
+
+
+module.exports = app;
