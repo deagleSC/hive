@@ -15,7 +15,8 @@ const Login = () => {
     const { currentUser } = useSelector((state: RootState) => state.user);
 
     useEffect(() => {
-        if (currentUser) navigate("/home")
+        // if (currentUser) navigate("/home")
+        // if (currentUser) 
     }, [])
 
     const [username, setUsername] = useState("");
@@ -32,7 +33,7 @@ const Login = () => {
         const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/signin`, { username, password });
         console.log(res.data)
         dispatch(loginSuccess(res.data));
-        navigate("/home");
+        // navigate("/home");
     } catch (err) {
         dispatch(loginFailed());
     }
@@ -50,7 +51,7 @@ const Login = () => {
         });
         console.log(res.data)
         dispatch(loginSuccess(res.data));
-        navigate("/home");
+        // navigate("/home");
     } catch (err) {
         dispatch(loginFailed());
     }
