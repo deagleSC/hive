@@ -48,7 +48,7 @@ const FeedTweet = ({tweet}: {tweet: TweetProps}) => {
             
             
             // console.log(`/users/find/${tweet['userId']}`)
-            let name = await axios.get(`/users/find/${tweet['userId']}`)
+            let name = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users/find/${tweet['userId']}`)
             // console.log(name.data.username)
             setUsername(name.data.username)
         }
@@ -66,7 +66,7 @@ const FeedTweet = ({tweet}: {tweet: TweetProps}) => {
         // console.log(tweet._id)
         
         try {
-            const deletedTweet = await axios.delete(`/tweets/delete/${tweet._id}`, {data : {
+            const deletedTweet = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/tweets/delete/${tweet._id}`, {data : {
                 id: currentUser ? currentUser['_id'] : ''
             }})
 
@@ -84,7 +84,7 @@ const FeedTweet = ({tweet}: {tweet: TweetProps}) => {
         try {
             setLoading(true)
 
-            const updatedTweet = await axios.put(`/tweets/edit/${tweet._id}`, {
+            const updatedTweet = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/tweets/edit/${tweet._id}`, {
                 text: text
             })            
             setLoading(false)
@@ -99,7 +99,7 @@ const FeedTweet = ({tweet}: {tweet: TweetProps}) => {
 
     const handleLike = async () => {
         try {
-            const likedTweet = await axios.put(`/tweets/${tweet['_id']}/like`, {
+            const likedTweet = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/tweets/${tweet['_id']}/like`, {
                 id: currentUser ? currentUser['_id'] : ''
             })
 

@@ -14,7 +14,7 @@ const RightPanel = () => {
     useEffect(() => {
 
         const getUsers = async () => {
-            const users = await axios.get('/users/findall')
+            const users = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users/findall`)
             // console.log(users.data)
             setUsers(users.data)
         }

@@ -44,7 +44,7 @@ const NewTweet = () => {
                     var imageUrl = res.data.url
                 }
 
-                const submitTweet = await axios.post("/tweets", {
+                const submitTweet = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/tweets`, {
                   userId: currentUser['_id'],
                   description: text,
                   image: imageUrl

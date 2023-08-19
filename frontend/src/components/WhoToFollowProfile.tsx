@@ -36,7 +36,7 @@ const WhoToFollowProfile = ({username, userId} : {username: string, userId: stri
 
             if (!((currentUser['following'] as string[]).includes(userId))) {
                 try {
-                  const follow = await axios.put(`/users/follow/${userId}`, {
+                  const follow = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/users/follow/${userId}`, {
                     id: currentUser['_id'],
                   });
                   dispatch(following(userId));
@@ -46,7 +46,7 @@ const WhoToFollowProfile = ({username, userId} : {username: string, userId: stri
                 }
               } else {
                 try {
-                  const unfollow = await axios.put(`/users/unfollow/${userId}`, {
+                  const unfollow = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/users/unfollow/${userId}`, {
                     id: currentUser['_id'],
                   });
           

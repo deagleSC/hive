@@ -31,7 +31,7 @@ const Feed = () => {
           try {
             if (currentUser) {
                 const timelineTweets = await axios.get(
-              `/tweets/timeline/${currentUser['_id']}`
+              `${process.env.REACT_APP_BACKEND_URL}/tweets/timeline/${currentUser['_id']}`
             );
     
             setTimeLine(timelineTweets.data);

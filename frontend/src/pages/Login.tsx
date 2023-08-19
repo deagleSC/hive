@@ -29,7 +29,7 @@ const Login = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-        const res = await axios.post("/auth/signin", { username, password });
+        const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/signin`, { username, password });
         console.log(res.data)
         dispatch(loginSuccess(res.data));
         navigate("/home");
@@ -43,7 +43,7 @@ const Login = () => {
     dispatch(loginStart());
 
     try {
-        const res = await axios.post("/auth/signup", {
+        const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/signup`, {
         username,
         email,
         password,
