@@ -1,0 +1,59 @@
+.feedTweetContainer {
+    padding: 10px;
+    border-bottom: 1px solid rgba(171, 171, 171, 0.5);
+}
+
+.tweetControlsWrapper {
+    display: flex;
+}
+
+.tweetControlsWrapper > * {
+    margin-top: 15px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.tweetControl {
+    transition: 0.2s ease-in-out;
+}
+
+.tweetControl:hover {
+    color: var(--twitter-blue);
+}
+
+.editWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.editWrapper > * {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.editWrapper > textarea {
+    /* border: 1px solid var(--twitter-blue); */
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+}
+
+.editWrapper > button {
+    padding: 10px;
+    background-color: var(--twitter-blue);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+textarea {
+    background-color: black;
+    color: white;
+}
+
+.tweetImage {
+    max-width: 100%;
+    margin-top: 10px;
+}

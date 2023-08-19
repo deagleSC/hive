@@ -1,0 +1,47 @@
+.newTweetContainer {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* padding: 20px; */
+    border-bottom: 1px solid rgb(171, 171, 171);
+}
+
+.newTweetContainer > * {
+    /* width: 100%; */
+    /* margin: 20px; */
+    margin: 10px;
+
+}
+
+.newTweetContainer > textarea {
+    padding: 10px;
+    /* border: 1px solid var(--twitter-blue); */
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.newTweetContainer > button {
+    background-color: var(--twitter-blue);
+    color: white;
+    border: none;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.tweetButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tweetButtonContainer {
+    transition: 0.2s ease;
+}
+
+.tweetButtonContainer:hover {
+    background-color: rgb(21, 77, 173);
+}

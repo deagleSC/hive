@@ -1,0 +1,25 @@
+.feedContainer  {
+    border-left: 1px solid rgba(171, 171, 171, 0.5);
+    border-right: 1px solid rgba(171, 171, 171, 0.5);
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.feedTweetsContainer {
+    margin-bottom: 40px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.rightPanelMobile {
+    display: none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .rightPanelMobile {
+      display: block;
+    }
+  }

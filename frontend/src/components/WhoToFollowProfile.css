@@ -1,0 +1,28 @@
+.profileWrapper {
+    background-color: rgb(21, 31, 63);
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.profileWrapper:hover {
+    background-color: black;
+}
+
+.profileWrapperFollowed {
+    background-color: rgb(21, 31, 63);
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid lightgreen;
+    transition: 0.3s ease;
+}

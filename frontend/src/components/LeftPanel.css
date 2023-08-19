@@ -1,0 +1,69 @@
+.leftPanel {
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+    padding: 20px;
+    width: 40vw;
+    /* background-color: aqua; */
+}
+
+    
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .leftPanel {
+      display: none;
+    }
+  }
+
+
+.panelListWrapper > div {
+    list-style: none;
+    /* width: 90%; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panelListWrapper > div > * {
+    margin: 7px;
+}
+
+.leftPanel > ul > li {
+    background-color: aquamarine;
+}
+
+.panelListWrapper > button {
+    padding: 10px;
+    border: none;
+    background-color: rgb(255, 78, 78);
+    color: white;
+    border-radius: 20px;
+    width: 100%;
+    transition: 0.2s ease;
+}
+
+.panelListWrapper > button:hover {
+    background-color: rgb(218, 7, 7);
+}
+
+.panelListWrapper > * {
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.panelListWrapper {
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+}
+
+.userMenuItem {
+    border: 1px solid var(--twitter-blue);
+    padding: 5px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,7 @@
+.whoToFollowWrapper {
+    background-color: var(--twitter-blue);
+    color: white;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
