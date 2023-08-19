@@ -18,9 +18,9 @@ const Home = () => {
     const { currentUser } = useSelector((state: RootState) => state.user);
     const navigate = useNavigate()
 
-    useEffect(() => {
-        if (!currentUser || currentUser == undefined) navigate("/")
-    }, [])
+    // useEffect(() => {
+    //     if (!currentUser || currentUser == undefined) navigate("/")
+    // }, [])
 
     const dispatch = useDispatch();
     

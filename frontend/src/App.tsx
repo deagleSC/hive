@@ -5,7 +5,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 
+import { useSelector } from 'react-redux';
+import { RootState } from './redux/store';
+
 const App = () => {
+
+  const { currentUser } = useSelector((state: RootState) => state.user);
+
   return (
     <div className='appWrapper'>
     <div className="app">
@@ -13,8 +19,8 @@ const App = () => {
       <BrowserRouter>
       <Routes>
 
-        <Route path="/" element={<Login />}></Route>
-        <Route path="/home" element={<Home />}></Route>
+        <Route path="/" element={currentUser ? <Home /> : <Login />}></Route>
+        {/* <Route path="/home" element={<Home />}></Route> */}
       </Routes>
       </BrowserRouter>
 
