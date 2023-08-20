@@ -35,6 +35,7 @@ const FeedTweet = ({tweet}: {tweet: TweetProps}) => {
     const [hide, setHide] = useState(false)
     const [loading, setLoading] = useState(false)
     const [liked, setLiked] = useState(false)
+    const [likesCount, setLikesCount] = useState(0)
 
     const { currentUser } = useSelector((state: RootState) => state.user);
 
@@ -51,6 +52,7 @@ const FeedTweet = ({tweet}: {tweet: TweetProps}) => {
             let name = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users/find/${tweet['userId']}`)
             // console.log(name.data.username)
             setUsername(name.data.username)
+            setLikesCount(tweet.likes.length)
         }
 
         getUserName()
@@ -106,6 +108,7 @@ const FeedTweet = ({tweet}: {tweet: TweetProps}) => {
             console.log(likedTweet)
 
             setLiked(!liked)
+            setLikesCount(liked ? likesCount - 1 : likesCount + 1)
 
         } catch (err) {
             console.log(err)
@@ -127,7 +130,7 @@ const FeedTweet = ({tweet}: {tweet: TweetProps}) => {
             {tweet.image && <img className="tweetImage" src={tweet.image} />}
 
             <div className='tweetControlsWrapper'>
-            <span onClick={handleLike}><FontAwesomeIcon className="tweetControl" icon={faHeart} color={liked ? 'red' : 'white'}/></span>
+            <span onClick={handleLike}><FontAwesomeIcon className="tweetControl" icon={faHeart} color={liked ? 'red' : 'white'}/> &nbsp;{likesCount}</span>
 
                 {currentUser && currentUser['username'] == username && <>
                 <span onClick={(() => setEditMode(true))}><FontAwesomeIcon className="tweetControl" icon={faPen} color='white'/></span>
