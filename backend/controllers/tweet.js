@@ -11,6 +11,7 @@ export const createTweet = async (req, res, next) => {
     handleError(500, err);
   }
 };
+
 export const deleteTweet = async (req, res, next) => {
   try {
     const tweet = await Tweet.findById(req.params.id);
@@ -63,17 +64,6 @@ export const getUserTweets = async (req, res, next) => {
     });
 
     res.status(200).json(userTweets);
-  } catch (err) {
-    handleError(500, err);
-  }
-};
-export const getExploreTweets = async (req, res, next) => {
-  try {
-    const getExploreTweets = await Tweet.find({
-      likes: { $exists: true },
-    }).sort({ likes: -1 });
-
-    res.status(200).json(getExploreTweets);
   } catch (err) {
     handleError(500, err);
   }

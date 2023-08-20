@@ -22,4 +22,9 @@
     .rightPanelMobile {
       display: block;
     }
+
+    .feedTweetsContainer {
+      margin-bottom: 50px;
+      padding-bottom: 20px;
+    }
   }
