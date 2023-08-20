@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import RightPanelMobile from '../components/RightPanelMobile';
+import { CircularProgress } from '@mui/material';
 
 interface TweetProps extends Object{
     createdAt: string, 
@@ -22,6 +23,7 @@ interface TweetProps extends Object{
 const Feed = () => {
 
     const [timeLine, setTimeLine] = useState<any[]>();
+    const [loading, setLoading] = useState(false)
 
     const { currentUser } = useSelector((state: RootState) => state.user);
 
@@ -29,6 +31,7 @@ const Feed = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
+            setLoading(true)
             if (currentUser) {
                 const timelineTweets = await axios.get(
               `${process.env.REACT_APP_BACKEND_URL}/tweets/timeline/${currentUser['_id']}`
@@ -36,6 +39,8 @@ const Feed = () => {
     
             setTimeLine(timelineTweets.data);
             // console.log(timelineTweets.data);
+
+            setLoading(false)
             }
           } catch (err) {
             console.log("error", err);
@@ -51,7 +56,10 @@ const Feed = () => {
             <NewTweet />
 
             <div className='feedTweetsContainer'>
-            {timeLine && timeLine.map((tweetData: TweetProps) => (
+
+            {loading && <div className='loading'><CircularProgress /></div>}
+
+            {timeLine && !loading && timeLine.map((tweetData: TweetProps) => (
                 <FeedTweet tweet={tweetData}/>
             ))}
             </div>
