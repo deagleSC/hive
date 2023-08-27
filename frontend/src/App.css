@@ -1,5 +1,6 @@
 * {
-  --twitter-blue: #1DA1F2;
+  /* --twitter-blue: #1DA1F2; */
+  --twitter-blue: rgb(255, 111, 33);
   --twitter-background: #E1E8ED;
 }
 

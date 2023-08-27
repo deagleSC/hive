@@ -8,7 +8,8 @@ import { useSelector } from "react-redux";
 import { RootState } from '../redux/store';
 import {useState, useEffect} from "react";
 import { useNavigate } from 'react-router-dom';
-import twitterLogo from '../assets/twitter-logo.png'
+import twitterLogo from '../assets/twitter-logo.png';
+import hiveLogo from '../assets/hive.png';
 import githubLogo from '../assets/github-logo.png'
 import { useDispatch } from 'react-redux';
 import { logout } from '../redux/userSlice';
@@ -33,7 +34,7 @@ const Home = () => {
         <div className='homeWrapper'>
         <div className='navbar'>
             <div>
-            <img className = "navImage" src={twitterLogo} ></img>
+            <img className = "navImage" src={hiveLogo} ></img>
             {/* <img className='navImage' src = {githubLogo} ></img> */}
             </div>
 

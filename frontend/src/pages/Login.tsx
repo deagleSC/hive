@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from '../redux/store';
 import TwitterLogo from '../assets/twitter-logo.png';
+import hiveLogo from '../assets/hive.png';
 
 const Login = () => {
 
@@ -60,7 +61,7 @@ const Login = () => {
     return ( 
         <div className='loginPage'>
             <div className='loginImageContainer'>
-                <img src = {TwitterLogo}></img>
+                <img src = {hiveLogo}></img>
             </div>
 
             <div className='loginFormContainer'>
