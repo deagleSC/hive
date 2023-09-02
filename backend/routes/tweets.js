@@ -6,7 +6,6 @@ import {
   likeOrDislike,
   getAllTweets,
   getUserTweets,
-  getExploreTweets,
   editTweet
 } from "../controllers/tweet.js";
 
@@ -28,7 +27,7 @@ router.get("/timeline/:id", getAllTweets);
 router.get("/user/all/:id", getUserTweets);
 
 //explore
-router.get("/explore", getExploreTweets);
+// router.get("/explore", getExploreTweets);
 
 //edit tweet
 router.put("/edit/:id", editTweet);

@@ -11,9 +11,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
 
 import CircularProgress from '@mui/material/CircularProgress';
 import formatDistance from "date-fns/formatDistance";
+import NewTweet from './NewTweet';
+import NewComment from './NewComment';
+import FeedComment from './FeedComment';
 
 interface TweetProps extends Object{
     createdAt: string, 
@@ -36,6 +40,8 @@ const FeedTweet = ({tweet}: {tweet: TweetProps}) => {
     const [loading, setLoading] = useState(false)
     const [liked, setLiked] = useState(false)
     const [likesCount, setLikesCount] = useState(0)
+    const [displayComments, setDisplayComments] = useState(false)
+    const [comments, setComments] = useState([])
 
     const { currentUser } = useSelector((state: RootState) => state.user);
 
@@ -55,12 +61,32 @@ const FeedTweet = ({tweet}: {tweet: TweetProps}) => {
             setLikesCount(tweet.likes.length)
         }
 
+
+
+        const getComments = async () => {
+
+            try {
+                
+                let commentsData = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/comments/getTweetComments/${tweet['_id']}`)
+                // console.log(tweet['_id'])
+                let temp = commentsData.data
+                setComments(temp)
+
+            } catch (err) {
+                console.log(err)
+            }
+        }
+
         getUserName()
+        getComments()
         setText(tweet.description)
         if (tweet.image) setImage(tweet.image)
         // if (currentUser) console.log(currentUser['username'])
 
         if (currentUser && tweet.likes.includes(currentUser['_id'])) setLiked(true)
+        // console.log("tweetId : ", tweet._id)
+        // console.log("userId : ", currentUser && currentUser['_id'])
+
 
     }, [])
 
@@ -131,13 +157,24 @@ const FeedTweet = ({tweet}: {tweet: TweetProps}) => {
 
             <div className='tweetControlsWrapper'>
             <span onClick={handleLike}><FontAwesomeIcon className="tweetControl" icon={faHeart} color={liked ? 'red' : 'white'}/> &nbsp;{likesCount}</span>
-
+            <span onClick={() => setDisplayComments(!displayComments)}className="tweetControl"><FontAwesomeIcon icon={faComment} /></span>
                 {currentUser && currentUser['username'] == username && <>
                 <span onClick={(() => setEditMode(true))}><FontAwesomeIcon className="tweetControl" icon={faPen} color='white'/></span>
                 <span onClick={handleDelete}><FontAwesomeIcon className="tweetControl"icon={faTrash} color='white'/></span>
                 </>}
 
             </div>
+
+            {displayComments && <div>
+                <NewComment tweetId={tweet._id}/>
+                {comments.map((comment) => (
+                    <div>
+                        {/* @{comment['username']} */}
+                        {/* {comment['description']} */}
+                        <FeedComment comment={comment}/>
+                    </div>
+                ))}
+            </div>}
         </div>
         :
         <div></div>
