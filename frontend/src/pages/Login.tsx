@@ -79,7 +79,7 @@ const Login = () => {
                     <button onClick={handleLogin}>{loading==1 ? <CircularProgress /> : "Sign in"}</button>
                     <button onClick={handleSignup}>{loading==2 ? <CircularProgress /> : "Register"}</button>
                 </div>
-                <p><b>Note: </b>Sign in might take upto 1 minute, since Render free tier web services go to sleep after 15 minutes of inactivity.</p>
+                <p><b>Note: </b>Sign in might take upto 1 minute, since Render free tier web services go to sleep after 15 minutes of inactivity. All subsequent API calls will work normally.</p>
             </div>
         </div>
     )
