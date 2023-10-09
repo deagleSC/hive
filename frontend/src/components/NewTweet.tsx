@@ -62,7 +62,7 @@ const NewTweet = () => {
 
     return ( 
         <div className='newTweetContainer'>
-            <textarea placeholder='Tweet something'
+            <textarea placeholder='Post something...'
             value={text}
             onChange={(e) => setText(e.target.value)}
             ></textarea>
@@ -71,7 +71,7 @@ const NewTweet = () => {
                 setFile(e.target.files[0])
             }} 
             type="file"></input>
-            <button className="tweetButtonContainer" onClick = {handleTweet}><div className='tweetButton'>{loading ? <CircularProgress /> : "Tweet"}</div></button>
+            <button className="tweetButtonContainer" onClick = {handleTweet}><div className='tweetButton'>{loading ? <CircularProgress /> : "Post"}</div></button>
         </div>
     )
 }
